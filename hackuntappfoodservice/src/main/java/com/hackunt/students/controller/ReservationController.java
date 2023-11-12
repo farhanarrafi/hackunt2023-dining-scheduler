@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hackunt.students.dto.ReservationsDto;
-import com.hackunt.students.entity.Dining;
 import com.hackunt.students.entity.Reservations;
 import com.hackunt.students.service.ReservationsService;
 

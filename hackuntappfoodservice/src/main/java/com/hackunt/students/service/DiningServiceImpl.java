@@ -1,5 +1,6 @@
 package com.hackunt.students.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -49,10 +50,9 @@ public class DiningServiceImpl implements DiningService {
     }
 
 	@Override
-    public ResponseEntity<List<Long>> getTablesByAvailability(String availability) {
-		List<Long> tableIds = diningRepository.findByTableAvailability(availability);
-		System.out.println(tableIds);
-		return ResponseEntity.ok(tableIds);
+    public List<Long> getTablesByAvailability(String availability) {
+		List<Long> tableIds = diningRepository.findTableIdsByAvailability(availability);
+		return tableIds;
     }
 
 }

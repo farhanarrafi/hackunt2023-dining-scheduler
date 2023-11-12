@@ -56,4 +56,5 @@ public class TimeSlotsServiceImpl implements TimeSlotsService{
     public void deleteTimeSlots(Long id) {
     	timeslotsRepository.deleteById(id);
     }
+
 }

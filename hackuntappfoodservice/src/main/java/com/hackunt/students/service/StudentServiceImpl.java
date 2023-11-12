@@ -8,7 +8,6 @@ import javax.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.hackunt.students.entity.Reservations;
 import com.hackunt.students.entity.Student;
 import com.hackunt.students.repository.StudentRepository;
 
@@ -19,7 +18,6 @@ public class StudentServiceImpl implements StudentService {
 	StudentRepository studentRepository;
 
 	public void addStudent(Student student) {
-		Reservations noReservationsForNewStudent = new Reservations();
 		studentRepository.save(student);
 	}
 

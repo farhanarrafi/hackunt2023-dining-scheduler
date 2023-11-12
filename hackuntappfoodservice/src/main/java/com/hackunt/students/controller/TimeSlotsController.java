@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hackunt.students.dto.TimeSlotsDto;
-import com.hackunt.students.dto.TimeSlotsDto;
 import com.hackunt.students.entity.TimeSlots;
 import com.hackunt.students.service.TimeSlotsService;
 
@@ -27,28 +26,28 @@ import com.hackunt.students.service.TimeSlotsService;
 public class TimeSlotsController {
    
 	@Autowired
-    private TimeSlotsService TimeSlotsService;
+    private TimeSlotsService timeSlotsService;
 
     @PostMapping("/addtimeslot")
     public ResponseEntity<TimeSlots> createTimeSlots(@RequestBody TimeSlotsDto TimeSlotsDto) {
-        TimeSlots createdTimeSlots = TimeSlotsService.createTimeSlots(TimeSlotsDto);
+        TimeSlots createdTimeSlots = timeSlotsService.createTimeSlots(TimeSlotsDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdTimeSlots);
     }
 
     @GetMapping("/getalltimeslots")
     public List<TimeSlots> getAllTimeSlotss() {
-        return TimeSlotsService.getAllTimeSlots();
+        return timeSlotsService.getAllTimeSlots();
     }
 
     @GetMapping("/gettimeslotbyid/{timeid}")
     public ResponseEntity<TimeSlots> getTimeSlotsById(@PathVariable Long timeid) {
-        TimeSlots TimeSlots = TimeSlotsService.getTimeSlotsById(timeid);
+        TimeSlots TimeSlots = timeSlotsService.getTimeSlotsById(timeid);
         return TimeSlots != null ? ResponseEntity.ok(TimeSlots) : ResponseEntity.notFound().build();
     }
 
     @PutMapping("/updatetimeslot/{timeid}")
     public ResponseEntity<TimeSlots> updateTimeSlots(@PathVariable Long timeid, @RequestBody TimeSlots updatedTimeSlots) {
-        TimeSlots updatedTimeSlotsEntity = TimeSlotsService.updateTimeSlots(timeid, updatedTimeSlots);
+        TimeSlots updatedTimeSlotsEntity = timeSlotsService.updateTimeSlots(timeid, updatedTimeSlots);
         return updatedTimeSlotsEntity != null
                 ? ResponseEntity.ok(updatedTimeSlotsEntity)
                 : ResponseEntity.notFound().build();
@@ -56,8 +55,13 @@ public class TimeSlotsController {
 
     @DeleteMapping("/deletetimeslot/{timeid}")
     public ResponseEntity<Void> deleteTimeSlots(@PathVariable Long timeid) {
-    	TimeSlotsService.deleteTimeSlots(timeid);
+    	timeSlotsService.deleteTimeSlots(timeid);
         return ResponseEntity.noContent().build();
     }
+    
+//    @GetMapping("/getTimeslotsForTable/{tableid}")
+//    public List<String> getTimeslotsForTable(@PathVariable Long tableid) {
+//    	return timeSlotsService.getTimeslotsForTable(tableid);
+//    }
 
 }

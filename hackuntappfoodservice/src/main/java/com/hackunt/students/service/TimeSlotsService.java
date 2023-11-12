@@ -17,4 +17,6 @@ public interface TimeSlotsService {
 
 	void deleteTimeSlots(Long id);
 
+	//List<String> getTimeslotsForTable(Long tableid);
+
 }

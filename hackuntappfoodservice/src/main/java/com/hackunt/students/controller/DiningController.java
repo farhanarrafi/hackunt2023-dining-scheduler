@@ -63,8 +63,8 @@ public class DiningController {
     // Get a list of all available dining tables
     @GetMapping("/getallavailabletables")
     public ResponseEntity<List<Long>> getAllAvailableTables() {
-    	ResponseEntity<List<Long>> diningTables = diningService.getTablesByAvailability("yes");
-        return diningTables;
+    	List<Long> listOfAvailableTables= diningService.getTablesByAvailability("yes");
+        return ResponseEntity.ok(listOfAvailableTables);
     }
 
 }

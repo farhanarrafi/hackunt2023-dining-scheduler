@@ -52,4 +52,8 @@ public class Dining {
 		this.tableAvailability = tableAvailability;
 	}
 
+	public Long getTableid() {
+		return tableid;
+	}
+
 }

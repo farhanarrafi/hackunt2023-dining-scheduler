@@ -2,8 +2,6 @@ package com.hackunt.students.service;
 
 import java.util.List;
 
-import org.springframework.http.ResponseEntity;
-
 import com.hackunt.students.entity.Dining;
 
 public interface DiningService {
@@ -18,6 +16,5 @@ public interface DiningService {
 
 	List<Dining> getAllTables();
 
-	ResponseEntity<List<Long>> getTablesByAvailability(String availability);
-
+    public List<Long> getTablesByAvailability(String availability);
 }
