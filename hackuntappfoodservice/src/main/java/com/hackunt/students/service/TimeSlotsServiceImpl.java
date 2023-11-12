@@ -57,4 +57,8 @@ public class TimeSlotsServiceImpl implements TimeSlotsService{
     	timeslotsRepository.deleteById(id);
     }
 
+	public List<String> getTimeslotsForTable(Long tableid){
+		return timeslotsRepository.findTimeSlotsForTable(tableid);
+	}
+
 }

@@ -16,6 +16,7 @@ public class TimeSlots {
     private String timeAvailability;
     @ManyToOne
     private Dining bookedtableno;
+    
 	public String getSlotPeriodForOneHour() {
 		return slotPeriodForOneHour;
 	}

@@ -21,7 +21,7 @@ import com.hackunt.students.service.TimeSlotsService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
-@RequestMapping(value = "/api/TimeSlots/v1")
+@RequestMapping(value = "/api/timeSlots/v1")
 
 public class TimeSlotsController {
    
@@ -59,9 +59,9 @@ public class TimeSlotsController {
         return ResponseEntity.noContent().build();
     }
     
-//    @GetMapping("/getTimeslotsForTable/{tableid}")
-//    public List<String> getTimeslotsForTable(@PathVariable Long tableid) {
-//    	return timeSlotsService.getTimeslotsForTable(tableid);
-//    }
+    @GetMapping("/getTimeslotsForTable/{tableid}")
+    public List<String> getTimeslotsForTable(@PathVariable Long tableid) {
+    	return timeSlotsService.getTimeslotsForTable(tableid);
+    }
 
 }
